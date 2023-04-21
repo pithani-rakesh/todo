@@ -1,0 +1,26 @@
+<head>
+  <style>
+    .card-header {
+      background-color: #c4f47b; /* Replace with your desired background color */
+    }
+    .card-content {
+      background-color: #cefaf6; /* Replace with your desired background color */
+    }
+  </style>
+</head>
+<div class="container d-flex flex-column align-items-center justify-content-center">
+  <div class="card card-header w-100 text-center">
+    <h1 class="mb-4">My To Do List</h1>
+    <form (submit)="submit()" class="input-group">
+      <input [(ngModel)]="task" type="text" id="Task" name="Task" class="form-control" placeholder="Task Desciption" required>
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-primary addBtn">
+          <i class="fa fa-plus mr-2"></i>Add Task
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="card card-content w-100 text-center">
+    <app-form></app-form>
+  </div>
+</div>

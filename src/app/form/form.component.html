@@ -1,0 +1,40 @@
+<head>
+  <style>
+    th {
+      background-color: #525d41; /* Replace with your desired background color */
+      color: wheat;
+    }
+    table{
+      border: 0px rgb(193, 153, 153);
+    }
+  </style>
+</head>
+<div class="container my-5">
+  <div class="nav nav-pills">
+    <a class="btn btn-default" [class.active]="tab == 'All'" (click)="tab = 'All'">All</a>
+    &nbsp;
+    <a class="btn btn-default" [class.active]="tab == 'Done'" (click)="tab = 'Done'">Done</a>
+    &nbsp;
+    <a class="btn btn-default" [class.active]="tab == 'Not Done'" (click)="tab = 'Not Done'">Not Done</a>
+  </div>
+  <div class="input-group">
+    <table *ngIf="table" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Time</th>
+          <th>Complete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of getFilterdTask()" class="task" [class.completed]="t.completed">
+          <td>{{t.desciption}}</td>
+          <td>{{t.timestamp}}</td>
+          <td>
+            <input type="checkbox" (input)="completed(t)" [checked]="t.completed" >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
